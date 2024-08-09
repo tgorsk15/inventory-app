@@ -1,7 +1,8 @@
 // insert pool here
+const pool = require("./pool");
 
 
-async  function allItemsGet() {
+async function allItemsGet() {
     console.log('here are the items')
 }
 

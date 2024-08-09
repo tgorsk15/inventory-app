@@ -1,0 +1,12 @@
+
+/* header */
+.header-container {
+    height: 150px;
+    background-color: rgb(193, 235, 235);
+    width: 100vw;
+}
+
+.website-title {
+    font-size: 30px;
+    color: green;
+}
