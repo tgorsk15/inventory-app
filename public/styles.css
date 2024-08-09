@@ -1,12 +1,40 @@
+html, body {
+    margin: 0;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 5fr;
+}
+
 
 /* header */
 .header-container {
     height: 150px;
     background-color: rgb(193, 235, 235);
     width: 100vw;
+    grid-column: 1 / 3;
+    grid-row: 1;
 }
+
 
 .website-title {
     font-size: 30px;
     color: green;
+}
+
+
+/* sidebar */
+.sidebar-container {
+    grid-column: 1;
+    grid-row: 2;
+    height: calc(100vh - 150px);
+    width: 20vw;
+    background-color: lightskyblue;
+}
+
+.main-container {
+    grid-column: 2;
+    background-color: rgb(150, 178, 150);
 }
