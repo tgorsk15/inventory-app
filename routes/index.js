@@ -7,6 +7,8 @@ const categoriesController = require("../controllers/categoriesController")
 
 indexRouter.get("/", itemsController.allItemsGet)
 
-
+// item form handler
+indexRouter.get("/newitem", itemsController.newItemGet)
+indexRouter.post("/newitem", itemsController.newItemPost)
 
 module.exports = indexRouter

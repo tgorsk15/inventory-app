@@ -8,3 +8,15 @@ exports.allItemsGet = async (req, res) => {
     })
 }
 
+exports.newItemGet = async (req, res) => {
+    res.render("newItem", {
+        title: "Add Item"
+    })
+}
+
+exports.newItemPost = async (req, res) => {
+    const content = req.body;
+    await db.addNewItem(content)
+    res.redirect("/")
+}
+

@@ -6,7 +6,12 @@ async function allItemsGet() {
     console.log('here are the items')
 }
 
+async function addNewItem(content) {
+    console.log(`new item added: ${content}`)
+}
+
 
 module.exports = {
-    allItemsGet
+    allItemsGet,
+    addNewItem
 }
