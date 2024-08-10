@@ -1,6 +1,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="./styles.css">
+        <link rel="stylesheet" href="./items.css">
         <title><%= title %></title>
     </head>
     <body>
@@ -8,7 +9,22 @@
         <%- include('header') %>
         <%- include('sidebar') %>
         <div class="main-container">
-           <p>All items</p> 
+           <div class="items-holder">
+            <% items.forEach(item => { %>
+                <div class="item-container">
+                    <img src="<%= item.image_url %>" alt="guitar" class="item-img">
+                    <h3 class="item-name"><%= item.name %></h3>
+                    <div class="description-container">
+                        <p class="item-price">
+                            <%= item.price %>
+                        </p>
+                        <p class="item-stock">
+                            <%= item.in_stock %>
+                        </p>
+                    </div>
+                </div>
+            <% }) %>
+           </div>
         </div>
         
     </body>

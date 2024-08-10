@@ -2,9 +2,10 @@ const db = require("../db/queries")
 
 
 exports.allItemsGet = async (req, res) => {
-    await db.allItemsGet();
+    const items = await db.allItemsGet();
     res.render("items", {
-        title: 'Items'
+        title: 'Items',
+        items: items
     })
 }
 
