@@ -23,7 +23,7 @@ const createItems = `
         ('Ibanez Midnight', 3, 800, './imgs/ibanez-midnight.jpg'),
         ('Gretsch Electromatic Classic', 1, 700, './imgs/gretsch-electromatic-classic.jpg'),
         ('Les Paul 1959', 2, 1200, './imgs/gibson-lespaul-1959.jpg'),
-        ('Fender Mustang', 3, 650, './imgs/fender-mustang'),
+        ('Fender Mustang', 3, 650, './imgs/fender-mustang.jpg'),
         ('Fender Kurt Cobain Jaguar', 1, 1800, './imgs/fender-cobain-jaguar.jpg')
         
 `

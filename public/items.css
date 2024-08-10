@@ -1,3 +1,13 @@
+.items-holder {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(170px, 1fr));
+    row-gap: 55px;
+}
+
 .item-img {
     height: 155px;
+}
+
+.description-container > p {
+    margin: 8px 0px;
 }
