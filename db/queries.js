@@ -7,7 +7,7 @@ async function allItemsGet() {
 }
 
 async function addNewItem(content) {
-    console.log(`new item added: ${content}`)
+    console.log(content)
 }
 
 

@@ -1,3 +1,9 @@
+const resetTables = `
+    DROP TABLE IF EXISTS items;
+    DROP TABLE IF EXISTS categories;
+    DROP TABLE IF EXISTS items_categories;
+`
+
 const createItems = `
     CREATE TABLE IF NOT EXISTS items (
         id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
@@ -41,6 +47,6 @@ async function main() {
     try {
 
     } catch (error) {
-        
+
     }
 }
