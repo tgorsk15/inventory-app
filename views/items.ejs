@@ -7,7 +7,8 @@
     <body>
         
         <%- include('header') %>
-        <%- include('sidebar') %>
+        <% console.log(categories) %>
+        <%- include('sidebar', { categories: categories }) %>
         <div class="main-container">
            <div class="items-holder">
             <% items.forEach(item => { %>

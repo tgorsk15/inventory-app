@@ -1,0 +1,10 @@
+.category-menu {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.category-link {
+    margin: 10px 0px;
+}

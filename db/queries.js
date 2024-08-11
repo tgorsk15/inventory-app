@@ -8,6 +8,22 @@ async function allItemsGet() {
     return rows
 }
 
+async function allCategoriesGet() {
+    console.log('here are categories')
+    const { rows } = await pool.query(`SELECT * FROM categories`)
+    return rows
+}
+
+async function findSingleCategory(categoryId) {
+    console.log('found category')
+    const { rows } = await pool.query(`
+            SELECT * FROM item_categories
+            JOIN items ON item_id = id
+            WHERE category_id = $1
+        `, [categoryId])
+    return rows
+}
+
 async function addNewItem(content) {
     console.log(content)
 }
@@ -15,5 +31,7 @@ async function addNewItem(content) {
 
 module.exports = {
     allItemsGet,
-    addNewItem
+    allCategoriesGet,
+    addNewItem,
+    findSingleCategory
 }

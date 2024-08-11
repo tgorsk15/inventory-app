@@ -1,15 +1,21 @@
 <html>
     <head>
         <link rel="stylesheet" href="./styles.css">
+        <link rel="stylesheet" href="./categories.css">
     </head>
     <body>
+        <% console.log(categories) %>
         <div class="sidebar-container">
             <div class="items-menu">
                 <a href="/">All Items</a>
                 <a href="/newItem">+ Add Item</a>
             </div>
             <div class="category-menu">
-                <% // insert category list here %>
+                <% categories.forEach(category => { %>
+                    <a href="/category/<%= category.id %>" class="category-link">
+                        <%= category.name %>
+                    </a>
+                <% }) %>
                 <a href="">+ Add Category</a>
             </div>
         </div>

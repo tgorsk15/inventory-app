@@ -4,7 +4,7 @@ html, body {
 
 body {
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 6fr;
     grid-template-rows: 1fr 5fr;
 }
 
@@ -30,7 +30,7 @@ body {
     grid-column: 1;
     grid-row: 2;
     height: calc(100vh - 150px);
-    width: 20vw;
+    
     background-color: lightskyblue;
 }
 
