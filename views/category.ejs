@@ -1,8 +1,10 @@
 <html>
     <head>
-
+        <title><%= chosenCategory.name %></title>
     </head>
     <body>
-        <p>This is a category</p>
+        <% categoryItems.forEach(item => { %>
+            <p><%= item.name %></p>
+        <% }) %>
     </body>
 </html>

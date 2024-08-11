@@ -8,8 +8,13 @@ exports.allCategoriesGet = async (req, res) => {
 
 exports.findCategoryGet = async (req, res) => {
     const categoryId = req.params.categoryId
-    console.log('working?', categoryId)
-    const chosenCategory = await db.findSingleCategory(categoryId)
+    const chosenCategory = await db.findCategory(categoryId)
     console.log(chosenCategory)
-    res.render("category")
+
+    const categoryItems = await db.findItemsInCategory(categoryId)
+    console.log(categoryItems)
+    res.render("category", {
+        chosenCategory: chosenCategory,
+        categoryItems: categoryItems
+    })
 }

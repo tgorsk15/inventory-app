@@ -14,8 +14,18 @@ async function allCategoriesGet() {
     return rows
 }
 
-async function findSingleCategory(categoryId) {
-    console.log('found category')
+async function findCategory(categoryId) {
+    console.log('searching category')
+    const { rows } = await pool.query(`
+            SELECT * FROM categories
+            WHERE id = $1
+        `, [categoryId])
+    return rows
+}
+
+
+
+async function findItemsInCategory(categoryId) {
     const { rows } = await pool.query(`
             SELECT * FROM item_categories
             JOIN items ON item_id = id
@@ -33,5 +43,6 @@ module.exports = {
     allItemsGet,
     allCategoriesGet,
     addNewItem,
-    findSingleCategory
+    findCategory,
+    findItemsInCategory
 }
