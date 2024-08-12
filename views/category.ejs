@@ -4,13 +4,24 @@
         <link rel="stylesheet" href="/items.css">
     </head>
     <body>
-        <%- include('header', {categoryItems, categoryItems}) %>
-        <%- include('sidebar', {categories: categories}, {categoryItems: categoryItems}) %>
+        <%- include('header') %>
+        <%- include('sidebar', {categories: categories}) %>
         <div class="main-container">
-           
+           <h2><%= chosenCategory.name %></h2>
             <div class="items-holder">
                 <% categoryItems.forEach(item => { %>
-                    <p><%= item.name %></p>
+                    <div class="item-container">
+                        <img src="<%= item.image_url %>" alt="guitar" class="item-img">
+                        <h3 class="item-name"><%= item.name %></h3>
+                        <div class="description-container">
+                            <p class="item-price">
+                                <%= item.price %>
+                            </p>
+                            <p class="item-stock">
+                                <%= item.in_stock %>
+                            </p>
+                    </div>
+                    </div>
                 <% }) %> 
             </div>
             

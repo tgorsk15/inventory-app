@@ -18,13 +18,13 @@ const createItems = `
 
     INSERT INTO items (name, in_stock, price, image_url)
     VALUES
-        ('PRS SE Custom 24', 1, 1000, './imgs/prs-se-custom-24.jpg'),
-        ('PRS SE DGT', 2, 600, './imgs/prs-se-dgt.jpg'),
-        ('Ibanez Midnight', 3, 800, './imgs/ibanez-midnight.jpg'),
-        ('Gretsch Electromatic Classic', 1, 700, './imgs/gretsch-electromatic-classic.jpg'),
-        ('Les Paul 1959', 2, 1200, './imgs/gibson-lespaul-1959.jpg'),
-        ('Fender Mustang', 3, 650, './imgs/fender-mustang.jpg'),
-        ('Fender Kurt Cobain Jaguar', 1, 1800, './imgs/fender-cobain-jaguar.jpg')
+        ('PRS SE Custom 24', 1, 1000, '/imgs/prs-se-custom-24.jpg'),
+        ('PRS SE DGT', 2, 600, '/imgs/prs-se-dgt.jpg'),
+        ('Ibanez Midnight', 3, 800, '/imgs/ibanez-midnight.jpg'),
+        ('Gretsch Electromatic Classic', 1, 700, '/imgs/gretsch-electromatic-classic.jpg'),
+        ('Les Paul 1959', 2, 1200, '/imgs/gibson-lespaul-1959.jpg'),
+        ('Fender Mustang', 3, 650, '/imgs/fender-mustang.jpg'),
+        ('Fender Kurt Cobain Jaguar', 1, 1800, '/imgs/fender-cobain-jaguar.jpg')
         
 `
 
