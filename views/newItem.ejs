@@ -1,7 +1,8 @@
 <html>
     <head>
         <title><%= title %></title>
-        <link rel="stylesheet" href="./styles.css">
+        <link rel="stylesheet" href="/styles.css">
+        <link rel="stylesheet" href="/items.css">
     </head>
     <body>
         <%- include('header') %>
@@ -16,7 +17,20 @@
                 <label for="price">How much per Unit?</label>
                 <input type="number" name="price" id="price" placeholder="100" required>
 
-                <!-- put in categories here -->
+                <label for="category-select">What categories does it fall into? </label>
+                
+                <div class="checkbox-container">
+                <% categories.forEach(category => { %>
+                    <div class="checkbox-holder">
+                        <label for="<%= category.name %>">
+                        <%= category.name %>
+                        </label>
+                        <input type="checkbox" name="<%= category.name %>" id="category-option">
+                    </div>
+                    
+                <% }) %>
+                </div>
+                
                 <button type="submit">Add Item</button>
             </form>
         </div>

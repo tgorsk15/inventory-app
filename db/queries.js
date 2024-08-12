@@ -3,12 +3,10 @@ const pool = require("./pool");
 
 async function allItemsGet() {
     const { rows } = await pool.query(`SELECT * FROM items`)
-    console.log(rows)
     return rows
 }
 
 async function allCategoriesGet() {
-    console.log('here are categories')
     const { rows } = await pool.query(`SELECT * FROM categories`)
     return rows
 }

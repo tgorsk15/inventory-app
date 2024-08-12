@@ -5,18 +5,18 @@ const categoriesController = require("./categoriesController")
 exports.allItemsGet = async (req, res, next) => {
     const items = await db.allItemsGet();
     const categories = await categoriesController.allCategoriesGet();
-    console.log('first', categories);
     res.render("items", {
         title: 'Items',
         items: items,
         categories: categories
     })
-    // next()
 }
 
 exports.newItemGet = async (req, res) => {
+    const categories = await categoriesController.allCategoriesGet();
     res.render("newItem", {
-        title: "Add Item"
+        title: "Add Item",
+        categories: categories
     })
 }
 

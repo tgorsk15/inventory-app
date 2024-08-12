@@ -11,3 +11,16 @@
 .description-container > p {
     margin: 8px 0px;
 }
+
+
+
+/* new item form */
+.item-form {
+    
+}
+
+.checkbox-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
