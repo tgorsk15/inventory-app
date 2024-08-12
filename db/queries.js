@@ -2,7 +2,6 @@ const pool = require("./pool");
 
 
 async function allItemsGet() {
-    console.log('here are the items')
     const { rows } = await pool.query(`SELECT * FROM items`)
     console.log(rows)
     return rows
@@ -14,23 +13,23 @@ async function allCategoriesGet() {
     return rows
 }
 
-async function findCategory(categoryId) {
-    console.log('searching category')
+async function findCategory(currentCatId) {
+    // console.log('searching category')
     const { rows } = await pool.query(`
             SELECT * FROM categories
             WHERE id = $1
-        `, [categoryId])
-    return rows
+        `, [currentCatId])
+    return rows[0]
 }
 
 
 
-async function findItemsInCategory(categoryId) {
+async function findItemsInCategory(currentCatId) {
     const { rows } = await pool.query(`
             SELECT * FROM item_categories
             JOIN items ON item_id = id
             WHERE category_id = $1
-        `, [categoryId])
+        `, [currentCatId])
     return rows
 }
 

@@ -7,14 +7,28 @@ exports.allCategoriesGet = async (req, res) => {
 }
 
 exports.findCategoryGet = async (req, res) => {
-    const categoryId = req.params.categoryId
-    const chosenCategory = await db.findCategory(categoryId)
-    console.log(chosenCategory)
+    try {
+        const categoryId = req.params.categoryId;
+        console.log('categoryId type:', typeof req.params.categoryId)
+        console.log('here is id', categoryId)
+        // for rendering sidebar:
+        const categories = await db.allCategoriesGet()
+        console.log(categories)
 
-    const categoryItems = await db.findItemsInCategory(categoryId)
-    console.log(categoryItems)
-    res.render("category", {
-        chosenCategory: chosenCategory,
-        categoryItems: categoryItems
-    })
+        
+        const chosenCategory = await db.findCategory(categoryId)
+        console.log('chosen', chosenCategory)
+
+        const categoryItems = await db.findItemsInCategory(categoryId)
+        console.log(categoryItems)
+        res.render("category", {
+            categories: categories,
+            chosenCategory: chosenCategory,
+            categoryItems: categoryItems
+        })
+        
+    } catch (error) {
+        console.log(error)
+    }
+    
 }

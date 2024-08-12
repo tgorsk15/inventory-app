@@ -1,10 +1,20 @@
 <html>
     <head>
-        <title><%= chosenCategory.name %></title>
+        <link rel="stylesheet" href="./styles.css">
+        <link rel="stylesheet" href="./items.css">
     </head>
     <body>
-        <% categoryItems.forEach(item => { %>
-            <p><%= item.name %></p>
-        <% }) %>
+        <%- include('header') %>
+        <%- include('sidebar', { categories: categories }) %>
+        <div class="main-container">
+           
+           <div class="items-holder">
+            <% categoryItems.forEach(item => { %>
+                <p><%= item.name %></p>
+            <% }) %> 
+       </div>
+            
+        </div>
+        
     </body>
 </html>
