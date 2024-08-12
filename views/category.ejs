@@ -1,18 +1,18 @@
 <html>
     <head>
-        <link rel="stylesheet" href="./styles.css">
-        <link rel="stylesheet" href="./items.css">
+        <link rel="stylesheet" href="/styles.css">
+        <link rel="stylesheet" href="/items.css">
     </head>
     <body>
-        <%- include('header') %>
-        <%- include('sidebar', { categories: categories }) %>
+        <%- include('header', {categoryItems, categoryItems}) %>
+        <%- include('sidebar', {categories: categories}, {categoryItems: categoryItems}) %>
         <div class="main-container">
            
-           <div class="items-holder">
-            <% categoryItems.forEach(item => { %>
-                <p><%= item.name %></p>
-            <% }) %> 
-       </div>
+            <div class="items-holder">
+                <% categoryItems.forEach(item => { %>
+                    <p><%= item.name %></p>
+                <% }) %> 
+            </div>
             
         </div>
         

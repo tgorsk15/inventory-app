@@ -13,23 +13,23 @@ async function allCategoriesGet() {
     return rows
 }
 
-async function findCategory(currentCatId) {
+async function findCategory(categoryId) {
     // console.log('searching category')
     const { rows } = await pool.query(`
             SELECT * FROM categories
             WHERE id = $1
-        `, [currentCatId])
+        `, [categoryId])
     return rows[0]
 }
 
 
 
-async function findItemsInCategory(currentCatId) {
+async function findItemsInCategory(categoryId) {
     const { rows } = await pool.query(`
             SELECT * FROM item_categories
             JOIN items ON item_id = id
             WHERE category_id = $1
-        `, [currentCatId])
+        `, [categoryId])
     return rows
 }
 

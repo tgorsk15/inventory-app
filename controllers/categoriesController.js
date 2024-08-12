@@ -9,7 +9,8 @@ exports.allCategoriesGet = async (req, res) => {
 exports.findCategoryGet = async (req, res) => {
     try {
         const categoryId = req.params.categoryId;
-        console.log('categoryId type:', typeof req.params.categoryId)
+        // const categoryId = parseInt(initialId)
+        console.log('categoryId type:', typeof categoryId)
         console.log('here is id', categoryId)
         // for rendering sidebar:
         const categories = await db.allCategoriesGet()

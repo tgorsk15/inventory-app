@@ -1,7 +1,8 @@
 <html>
     <head>
-        <link rel="stylesheet" href="./styles.css">
-        <link rel="stylesheet" href="./categoryStyles.css">
+        <link rel="stylesheet" href="/styles.css">
+        <link rel="stylesheet" href="/categories.css">
+        
     </head>
     <body>
         <div class="sidebar-container">
@@ -10,11 +11,13 @@
                 <a href="/newItem">+ Add Item</a>
             </div>
             <div class="category-menu">
-                <% categories.forEach(category => { %>
-                    <a href="/category/<%= category.id %>" class="category-link">
-                        <%= category.name %>
-                    </a>
-                <% }) %>
+                <% if (locals.categories) { %>
+                    <% categories.forEach(category => { %>
+                        <a href="/category/<%= category.id %>" class="category-link">
+                            <%= category.name %>
+                        </a>
+                    <% }) %>
+                <% } %>
                 <a href="">+ Add Category</a>
             </div>
         </div>
