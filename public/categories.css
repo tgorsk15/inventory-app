@@ -1,7 +1,17 @@
-.category-menu {
+.categories-menu {
     display: flex;
     flex-direction: column;
     
+}
+
+.categories-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.categories-title {
+    margin: 8px 0px;
 }
 
 

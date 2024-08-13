@@ -30,8 +30,13 @@ body {
     grid-column: 1;
     grid-row: 2;
     height: calc(100vh - 150px);
-    
     background-color: lightskyblue;
+}
+
+.sidebar-container a {
+    text-decoration: none;
+    color: azure;
+    font-weight: bold;
 }
 
 .items-menu {
@@ -39,6 +44,11 @@ body {
     flex-direction: column;
     gap: 10px;
     margin-bottom: 20px;
+    margin-left: 15px;
+}
+
+.categories-menu {
+    margin-left: 15px;
 }
 
 

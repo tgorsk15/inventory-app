@@ -10,7 +10,11 @@
                 <a href="/">All Items</a>
                 <a href="/newItem">+ Add Item</a>
             </div>
-            <div class="category-menu">
+            <div class="categories-menu">
+                <div class="categories-header">
+                    <h3 class="categories-title">Categories</h3>
+                    <a href="/newCategory" class="add-category-link">+</a>
+                </div>
                 <% if (locals.categories) { %>
                     <% categories.forEach(category => { %>
                         <a href="/category/<%= category.id %>" class="category-link">
@@ -18,7 +22,6 @@
                         </a>
                     <% }) %>
                 <% } %>
-                <a href="/newCategory">+ Add Category</a>
             </div>
         </div>
     </body>
