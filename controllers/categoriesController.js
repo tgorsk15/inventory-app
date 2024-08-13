@@ -28,3 +28,15 @@ exports.findCategoryGet = async (req, res) => {
     }
     
 }
+
+exports.newCategoryGet = async (req, res) => {
+    res.render("newCategory", {
+        title: "New Category"
+    })
+}
+
+exports.newCategoryPush = async (req, res) => {
+    console.log(req.body)
+    await db.addNewCategory(req.body)
+    res.redirect("/")
+}

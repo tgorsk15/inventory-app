@@ -14,4 +14,8 @@ indexRouter.post("/newitem", itemsController.newItemPost)
 // category link handler
 indexRouter.get("/category/:categoryId", categoriesController.findCategoryGet)
 
+// new category handler
+indexRouter.get("/newCategory", categoriesController.newCategoryGet)
+indexRouter.post("/newCategory", categoriesController.newCategoryPush)
+
 module.exports = indexRouter

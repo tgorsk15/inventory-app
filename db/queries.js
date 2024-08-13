@@ -73,6 +73,16 @@ async function addNewItem(selectedCategories, newItem) {
     })
 }
 
+async function addNewCategory(newCategory) {
+    console.log('adding new cat')
+    console.log(newCategory)
+    const insertCategory = await pool.query(`
+            INSERT INTO categories (name, founder)
+            VALUES
+                ($1, $2)
+
+        `, [newCategory.categoryName, newCategory.founderName])
+}
 
 module.exports = {
     allItemsGet,
@@ -80,5 +90,6 @@ module.exports = {
     addNewItem,
     findCategoryById,
     findCategoriesByName,
-    findItemsInCategory
+    findItemsInCategory,
+    addNewCategory
 }
