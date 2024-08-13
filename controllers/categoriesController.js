@@ -12,7 +12,7 @@ exports.findCategoryGet = async (req, res) => {
         // for rendering sidebar:
         const categories = await db.allCategoriesGet()
         
-        const chosenCategory = await db.findCategory(categoryId)
+        const chosenCategory = await db.findCategoryById(categoryId)
         console.log('chosen', chosenCategory)
 
         const categoryItems = await db.findItemsInCategory(categoryId)

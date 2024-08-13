@@ -21,9 +21,12 @@ exports.newItemGet = async (req, res) => {
 }
 
 exports.newItemPost = async (req, res) => {
-    const content = req.body;
-    console.log(content)
-    await db.addNewItem(content)
+    const newItem = req.body;
+    console.log(newItem)
+    const selectedCategories = Object.entries(newItem)
+        .filter(([key,value]) => value === "on")
+        .map(([key]) => key);
+    await db.addNewItem(selectedCategories, newItem)
     res.redirect("/")
 }
 
