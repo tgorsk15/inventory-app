@@ -1,5 +1,13 @@
 const db = require('../db/queries')
+const asyncHandler = require("express-async-handler")
 
+const { body, validationResult } = require("express-validator");
+// TMW 8/14: start incorporating form validation
+// using asyncHandler
+
+const validateUser = [
+    
+]
 
 exports.allCategoriesGet = async (req, res) => {
     const categories = await db.allCategoriesGet()
