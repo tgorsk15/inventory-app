@@ -4,8 +4,22 @@
     row-gap: 55px;
 }
 
+.item-container {
+   
+}
+
+.img-container {
+    position: relative;
+    width: 200px;
+    overflow: hidden;
+    margin: 0 auto;
+    text-align: center;
+}
+
 .item-img {
     height: 155px;
+    max-width: none;
+    margin: 0 -100%;
 }
 
 .description-container > p {
@@ -14,9 +28,13 @@
 
 
 
-/* new item form */
 .item-form {
     
+}
+
+.item-form label {
+    display: flex;
+    flex-direction: column;
 }
 
 .checkbox-container {

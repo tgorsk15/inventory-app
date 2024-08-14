@@ -11,7 +11,11 @@
            <div class="items-holder">
             <% items.forEach(item => { %>
                 <div class="item-container">
-                    <img src="<%= item.image_url %>" alt="guitar" class="item-img">
+                    <!-- set up image container here -->
+                    <div class="img-container">
+                        <img src="<%= item.image_url %>" alt="guitar" class="item-img">
+                    </div>
+                    
                     <h3 class="item-name"><%= item.name %></h3>
                     <div class="description-container">
                         <p class="item-price">
