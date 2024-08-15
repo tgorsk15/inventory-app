@@ -2,10 +2,27 @@ const db = require('../db/queries')
 const asyncHandler = require("express-async-handler")
 
 const { body, validationResult } = require("express-validator");
-// TMW 8/14: start incorporating form validation
-// using asyncHandler
 
-const validateUser = [
+const lengthError = 'Category name must be between 3 and 25 characters long'
+
+const validateCategory = [
+    // check that category name hasn't already been used
+    body("categoryName").trim()
+        .custom(async (value, { req }) => {
+            console.log(req.body)
+            const categories = await db.allCategoriesGet()
+            categories.forEach(category => {
+                console.log(category.name)
+                if (category.name === value) {
+                    throw new Error('This category already exists, try another!')
+                }
+            })
+    
+        }),
+    body("categoryName").trim()
+        .isLength({ min: 3, max: 25 }).withMessage(lengthError),
+    body("founderName").trim()
+        .optional({values: "falsy"})
     
 ]
 
@@ -43,8 +60,26 @@ exports.newCategoryGet = async (req, res) => {
     })
 }
 
-exports.newCategoryPush = async (req, res) => {
-    console.log(req.body)
-    await db.addNewCategory(req.body)
-    res.redirect("/")
-}
+// exports.newCategoryPush = async (req, res) => {
+//     console.log(req.body)
+//     await db.addNewCategory(req.body)
+//     res.redirect("/")
+// }
+
+exports.newCategoryPush = [
+    validateCategory,
+    async (req, res) => {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            return res.status(400).render("newCategory", {
+                title: "New Category",
+                errors: errors.array()
+            })
+        };
+
+        console.log(req.body)
+        await db.addNewCategory(req.body)
+        res.redirect("/")
+    } 
+]

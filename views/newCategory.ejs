@@ -7,6 +7,11 @@
     <body>
         <%- include('header') %>
         <div class="main-container" style="grid-column: 1 / 3;">
+            <!-- in case of errors: -->
+            <div class="error-container">
+                <%- include('errors') %>
+            </div>
+
             <form action="/newCategory" class="category-form" method="POST">
                 <label for="categoryName">Category Name:</label>
                 <input type="text" name="categoryName" id="categoryName" required>
