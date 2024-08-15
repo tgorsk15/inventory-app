@@ -12,7 +12,8 @@
                 <% categoryItems.forEach(item => { %>
                     <div class="item-container">
                         <div class="img-container">
-                            <img src="<%= item.image_url %>" alt="guitar" class="item-img">
+                            <img src="<%= item.image_url %>" alt="<%= item.name %>" 
+                            class="item-img">
                         </div>
 
                         <h3 class="item-name"><%= item.name %></h3>

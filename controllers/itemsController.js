@@ -3,14 +3,14 @@ const asyncHandler = require("express-async-handler")
 const categoriesController = require("./categoriesController")
 const { body, validationResult } = require("express-validator")
 
-const nameError = "Name can't be longer than 3 characters"
+const nameError = "Name must be between 3 and 25 characters"
 const unitsError = "Max amount of units is 1 billion"
 
 
 
 const validateItem = [
     body("itemName").trim()
-        .isLength({ max: 3 }).withMessage(`${nameError}`),
+        .isLength({ min: 3, max: 25 }).withMessage(`${nameError}`),
     body("units").trim()
     .isInt({max: 1000000000}).withMessage(`${unitsError}`),
     // checks if at least one category is selected:
