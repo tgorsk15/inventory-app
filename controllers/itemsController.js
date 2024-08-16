@@ -95,7 +95,7 @@ exports.updateItemGet = async (req, res) => {
     console.log(currentCategories)
 
     const chosenItem = await db.findItemById(itemId);
-    console.log(chosenItem)
+    console.log('here is chosen1', chosenItem)
     res.render("updateItem", {
         title: `${chosenItem.name}`,
         categories: categories,
@@ -110,21 +110,22 @@ exports.updateItemPost = [
         const errors = validationResult(req);
         const categories = await categoriesController.allCategoriesGet();
         
+        
         const itemId = req.params.itemId;
         const item = req.body
+        const oldItem = await db.findItemById(itemId)
+        console.log('here is old', oldItem)
         
         const currentCategories = Object.entries(item)
             .filter(([key,value]) => value === "on")
             .map(([key]) => key);
         console.log('here is search item', item)
-        console.log(itemId)
-        console.log(currentCategories)
 
         if (!errors.isEmpty()) {
             return res.status(400).render("updateItem", {
-                title: `${item.itemName}`,
+                title: `${oldItem.name}`,
                 categories: categories,
-                chosenItem: chosenItem,
+                chosenItem: oldItem,
                 currentCategories: currentCategories,
                 errors: errors.array()
             })

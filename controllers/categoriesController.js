@@ -59,11 +59,6 @@ exports.newCategoryGet = async (req, res) => {
     })
 }
 
-// exports.newCategoryPush = async (req, res) => {
-//     console.log(req.body)
-//     await db.addNewCategory(req.body)
-//     res.redirect("/")
-// }
 
 exports.newCategoryPush = [
     validateCategory,

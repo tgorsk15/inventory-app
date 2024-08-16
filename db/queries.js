@@ -91,7 +91,6 @@ async function updateItem(item, itemId) {
 
 async function addNewCategory(newCategory) {
     console.log('adding new cat')
-    console.log(newCategory)
     const insertCategory = await pool.query(`
             INSERT INTO categories (name, founder)
             VALUES
@@ -109,7 +108,6 @@ async function updateItemReferences(itemId, currentCategories) {
         `, [itemId])
 
     categoryResults.forEach(async category => {
-        console.log('categoryId:', category.id)
         const referenceInsert = await pool.query(`
             INSERT INTO item_categories (item_id, category_id)
             VALUES
