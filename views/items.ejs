@@ -10,6 +10,7 @@
         <div class="main-container">
            <div class="items-holder">
             <% items.forEach(item => { %>
+                
                 <div class="item-container">
                     <!-- set up image container here -->
                     <div class="img-container">
@@ -28,6 +29,7 @@
                         <p class="item-stock">
                             Units in Stock: <%= item.in_stock %>
                         </p>
+                        <a href="/updateItem/<%= item.id %>" class="edit-item-link">Edit</a>
                     </div>
                 </div>
             <% }) %>

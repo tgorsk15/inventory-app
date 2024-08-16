@@ -2,7 +2,6 @@ const { Router } = require('express');
 const indexRouter = Router();
 
 const itemsController = require("../controllers/itemsController")
-const brandsController = require("../controllers/brandsController")
 const categoriesController = require("../controllers/categoriesController");
 
 indexRouter.get("/", itemsController.allItemsGet)
@@ -18,4 +17,8 @@ indexRouter.get("/category/:categoryId", categoriesController.findCategoryGet)
 indexRouter.get("/newCategory", categoriesController.newCategoryGet)
 indexRouter.post("/newCategory", categoriesController.newCategoryPush)
 
+//updating items
+indexRouter.get("/updateItem/:itemId", itemsController.updateItemGet)
+
 module.exports = indexRouter
+

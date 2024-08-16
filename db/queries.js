@@ -6,8 +6,12 @@ async function allItemsGet() {
     return rows
 }
 
-async function findItem(item) {
-    
+async function findItemById(itemId) {
+    const { rows } = await pool.query(`
+            SELECT * FROM items
+            WHERE id = $1
+        `, [itemId])
+    return rows[0]
 }
 
 async function allCategoriesGet() {
@@ -38,6 +42,16 @@ async function findItemsInCategory(categoryId) {
             JOIN items ON item_id = id
             WHERE category_id = $1
         `, [categoryId])
+    return rows
+}
+
+async function findCategoriesWhereItemExists(itemId) {
+    const { rows } = await pool.query(`
+            SELECT * FROM item_categories
+            JOIN categories ON category_id = id
+            WHERE item_id = $1
+            
+        `, [itemId])
     return rows
 }
 
@@ -79,7 +93,9 @@ async function addNewCategory(newCategory) {
 
 module.exports = {
     allItemsGet,
+    findItemById,
     allCategoriesGet,
+    findCategoriesWhereItemExists,
     addNewItem,
     findCategoryById,
     findCategoriesByName,

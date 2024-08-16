@@ -38,4 +38,12 @@
     margin: 8px 0px;
 }
 
+.edit-item-link {
+    background-color: aliceblue;
+    border-radius: 15px;
+    padding: 1px 5px;
+    text-decoration: none;
+    color: black;
+}
+
 

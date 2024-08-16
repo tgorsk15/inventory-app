@@ -70,11 +70,42 @@ exports.newItemPost = [
 
         const newItem = req.body;
         console.log(newItem)
+
+        if (req.body.itemName.length > 16) {
+
+        }
+
         const selectedCategories = Object.entries(newItem)
             .filter(([key,value]) => value === "on")
             .map(([key]) => key);
         await db.addNewItem(selectedCategories, newItem)
         res.redirect("/")
     }
+]
+
+
+exports.updateItemGet = async (req, res) => {
+    // need to figure out how to pass selected item into here
+    const itemId = req.params.itemId
+    console.log(itemId)
+
+    const categories = await categoriesController.allCategoriesGet();
+    const results = await db.findCategoriesWhereItemExists(itemId)
+    const currentCategories = results.map(category => category.name)
+    console.log(currentCategories)
+
+    const chosenItem = await db.findItemById(itemId);
+    console.log(chosenItem)
+    res.render("updateItem", {
+        title: `${chosenItem.name}`,
+        categories: categories,
+        chosenItem: chosenItem,
+        currentCategories: currentCategories
+    })
+}
+
+exports.updateItemPost = [
+    validateItem,
+
 ]
 
