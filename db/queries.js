@@ -80,6 +80,15 @@ async function addNewItem(selectedCategories, newItem) {
     })
 }
 
+async function updateItem(item, itemId) {
+    await pool.query(`
+            UPDATE items
+            SET name = $1, in_stock = $2, price = $3, image_url = $4
+            WHERE id = $5
+        `, [item.itemName, item.units, item.price, item.itemImg, itemId])
+
+}
+
 async function addNewCategory(newCategory) {
     console.log('adding new cat')
     console.log(newCategory)
@@ -100,5 +109,6 @@ module.exports = {
     findCategoryById,
     findCategoriesByName,
     findItemsInCategory,
+    updateItem,
     addNewCategory
 }

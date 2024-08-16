@@ -106,6 +106,30 @@ exports.updateItemGet = async (req, res) => {
 
 exports.updateItemPost = [
     validateItem,
+    async (req, res) => {
+        const errors = validationResult(req);
+        const categories = await categoriesController.allCategoriesGet();
+        // console.log('here is params', req.params)
+        // console.log('here is body', req.body)
+        const itemId = req.params.itemId;
+        const item = req.body
+        console.log('here is search item', item)
+        console.log(itemId)
 
+        if (!errors.isEmpty()) {
+            return res.status(400).render("updateItem", {
+                title: `${chosenItem.name}`,
+                categories: categories,
+                chosenItem: chosenItem,
+                currentCategories: currentCategories,
+                errors: errors.array()
+            })
+        };
+
+        // have to replace item row in items
+        const updatedItem = await db.updateItem(item, itemId)
+        console.log('item post update', updatedItem)
+        // AND update entries in item_categories
+    }
 ]
 

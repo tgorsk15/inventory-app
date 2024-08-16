@@ -19,6 +19,7 @@ indexRouter.post("/newCategory", categoriesController.newCategoryPush)
 
 //updating items
 indexRouter.get("/updateItem/:itemId", itemsController.updateItemGet)
+indexRouter.post("/updateItem/:itemId", itemsController.updateItemPost)
 
 module.exports = indexRouter
 
