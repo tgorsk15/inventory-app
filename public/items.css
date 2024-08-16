@@ -33,18 +33,3 @@
 }
 
 
-/* new item section */
-.item-form {
-    
-}
-
-.item-form label {
-    display: flex;
-    flex-direction: column;
-}
-
-.checkbox-container {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-}

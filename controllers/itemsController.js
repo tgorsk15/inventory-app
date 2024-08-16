@@ -15,7 +15,6 @@ const validateItem = [
     .isInt({max: 1000000000}).withMessage(`${unitsError}`),
     // checks if at least one category is selected:
     body().custom(async (value, { req }) => {
-        console.log(req.body)
         const hasSelectedCategory = Object.values(req.body).some(value => value === 'on')
 
         if (!hasSelectedCategory) {

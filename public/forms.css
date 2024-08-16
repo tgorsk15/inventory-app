@@ -15,8 +15,24 @@
     font-size: 28px;
 }
 
+
 .back-button {
-    margin-left: 30px;
+    display: flex;
+    justify-content: center;
+    /* margin-left: 30px; */
+    transition: all ease-in-out 300ms;
+}
+
+.back-button > svg {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.back-button > svg:hover {
+    background-color: rgb(212, 221, 221);
+    border-radius: 25px;
+    
 }
 
 .item-form {
@@ -52,3 +68,25 @@
     line-height: 1.5;
     color: red;
 }
+
+
+/* new category form */
+
+.category-form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 30px;
+    background-color: rgb(212, 221, 221);
+    border-radius: 20px;
+    height: 27vh;
+}
+
+.category-form > label {
+    margin-top: 20px;
+}
+
+.add-category-btn {
+    margin-top: 20px;
+    width: 120px;
+}
+

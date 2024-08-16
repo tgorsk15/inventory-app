@@ -12,7 +12,6 @@ const validateCategory = [
             console.log(req.body)
             const categories = await db.allCategoriesGet()
             categories.forEach(category => {
-                console.log(category.name)
                 if (category.name === value) {
                     throw new Error('This category already exists, try another!')
                 }
