@@ -1,0 +1,54 @@
+.main-container {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    padding-top: 100px;
+    position: relative;
+}
+
+/* new item form section */
+.item-title-container {
+    /* position: absolute; */
+    /* top: 100px;
+    left: 180px; */
+    margin-right: 35px;
+    font-size: 28px;
+}
+
+.back-button {
+    margin-left: 30px;
+}
+
+.item-form {
+    padding: 10px 30px;
+    background-color: rgb(212, 221, 221);
+    border-radius: 20px;
+    height: 55vh;
+}
+
+.item-form > label {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+
+.checkbox-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(40px, 1fr));
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.checkbox-holder {
+    display: flex;
+}
+
+.error-container {
+    /* position: absolute; */
+    top: 100px;
+    right: 18vw;
+    line-height: 1.5;
+    color: red;
+}
