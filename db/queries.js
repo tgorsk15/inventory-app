@@ -86,7 +86,7 @@ async function updateItem(item, itemId) {
             SET name = $1, in_stock = $2, price = $3, image_url = $4
             WHERE id = $5
         `, [item.itemName, item.units, item.price, item.itemImg, itemId])
-
+    
 }
 
 async function addNewCategory(newCategory) {
@@ -100,6 +100,24 @@ async function addNewCategory(newCategory) {
         `, [newCategory.categoryName, newCategory.founderName])
 }
 
+async function updateItemReferences(itemId, currentCategories) {
+    const categoryResults = await findCategoriesByName(currentCategories)
+
+    await pool.query(`
+            DELETE FROM item_categories
+            WHERE item_id = $1
+        `, [itemId])
+
+    categoryResults.forEach(async category => {
+        console.log('categoryId:', category.id)
+        const referenceInsert = await pool.query(`
+            INSERT INTO item_categories (item_id, category_id)
+            VALUES
+                ($1, $2)
+        `, [itemId, category.id])
+    })
+}
+
 module.exports = {
     allItemsGet,
     findItemById,
@@ -110,5 +128,6 @@ module.exports = {
     findCategoriesByName,
     findItemsInCategory,
     updateItem,
-    addNewCategory
+    addNewCategory,
+    updateItemReferences
 }
