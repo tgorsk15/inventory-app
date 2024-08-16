@@ -1,13 +1,12 @@
 .main-container {
     display: flex;
-    /* flex-direction: column; */
     justify-content: center;
     padding-top: 100px;
     position: relative;
 }
 
 /* new item form section */
-.item-title-container {
+.item-title-container  {
     /* position: absolute; */
     /* top: 100px;
     left: 180px; */
@@ -19,7 +18,6 @@
 .back-button {
     display: flex;
     justify-content: center;
-    /* margin-left: 30px; */
     transition: all ease-in-out 300ms;
 }
 
@@ -35,14 +33,17 @@
     
 }
 
-.item-form {
+.item-form, .update-item-form {
     padding: 10px 30px;
+    /* padding-bottom: 0px; */
     background-color: rgb(212, 221, 221);
     border-radius: 20px;
-    height: 55vh;
+    /* height: 55vh; */
+    /* height: auto;  */
+    height: fit-content;
 }
 
-.item-form > label {
+.item-form > label, .update-item-form > label {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
