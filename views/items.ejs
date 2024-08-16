@@ -17,6 +17,9 @@
                         class="item-img">
                     </div>
                     
+                    <% if (item.name.length > 16) {%>
+                        <% item.name = item.name.slice(0, 16) + '...' %>
+                    <% } %>
                     <h3 class="item-name"><%= item.name %></h3>
                     <div class="description-container">
                         <p class="item-price">

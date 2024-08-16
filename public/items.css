@@ -1,7 +1,9 @@
 .items-holder {
     display: grid;
-    grid-template-columns: repeat(5, minmax(170px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
     row-gap: 55px;
+    column-gap: 20px;
+    margin: 20px;
 }
 
 .item-container {
@@ -14,12 +16,16 @@
     overflow: hidden;
     margin: 0 auto;
     text-align: center;
+    background-color: white;
+    padding: 5px 0px;
+    border-radius: 25px;
 }
 
 .item-img {
     height: 155px;
     max-width: none;
     margin: 0 -100%;
+
 }
 
 .item-name {
