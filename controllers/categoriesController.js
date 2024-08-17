@@ -77,3 +77,15 @@ exports.newCategoryPush = [
         res.redirect("/")
     } 
 ]
+
+exports.updateCategoryGet = async (req, res) => {
+    
+}
+
+exports.updateCategoryPush = [
+    validateCategory,
+    async (req,res) => {
+
+    }
+]
+    

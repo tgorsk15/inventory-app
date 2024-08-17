@@ -14,7 +14,30 @@
     margin: 8px 0px;
 }
 
+.category-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.category-container:hover .edit-svg {
+    display: block;
+}
+
 
 .category-link {
     margin: 10px 0px;
 }
+
+.edit-svg {
+    display: none;
+    margin-right: 35px;
+    height: 20px;
+    transition:  all ease-out 300ms;
+}
+
+.edit-svg:hover {
+    transform: scale(1.1);
+}
+

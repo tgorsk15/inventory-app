@@ -21,6 +21,9 @@ indexRouter.post("/newCategory", categoriesController.newCategoryPush)
 indexRouter.get("/updateItem/:itemId", itemsController.updateItemGet)
 indexRouter.post("/updateItem/:itemId", itemsController.updateItemPost)
 
+// updating categories
+indexRouter.get("updateCategory/categoryId", categoriesController.updateCategoryGet)
+
 // deleting items
 indexRouter.get("/deleteItem/:itemId", itemsController.deleteItemGet)
 
