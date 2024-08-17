@@ -79,7 +79,10 @@ exports.newCategoryPush = [
 ]
 
 exports.updateCategoryGet = async (req, res) => {
-    
+    console.log(req.body)
+    res.render("updateCategory", {
+        title: 'update'
+    })
 }
 
 exports.updateCategoryPush = [
