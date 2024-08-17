@@ -89,6 +89,15 @@ async function updateItem(item, itemId) {
     
 }
 
+async function updateCategory(category, categoryId) {
+    console.log(category)
+    await pool.query(`
+            UPDATE categories
+            SET name = $1, founder = $2
+            WHERE id = $3
+        `, [category.categoryName, category.founderName, categoryId])
+}
+
 async function addNewCategory(newCategory) {
     console.log('adding new cat')
     const insertCategory = await pool.query(`
@@ -140,6 +149,7 @@ module.exports = {
     findCategoriesByName,
     findItemsInCategory,
     updateItem,
+    updateCategory,
     addNewCategory,
     updateItemReferences,
     deleteItem,

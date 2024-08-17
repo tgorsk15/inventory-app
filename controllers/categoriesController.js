@@ -101,8 +101,6 @@ exports.updateCategoryPush = [
         const errors = validationResult(req);
         console.log('updated category')
         const updatedCategory = req.body
-        console.log(updatedCategory)
-        console.log(req.params)
 
         const categoryId = req.params.categoryId
         const oldCategory = await db.findCategoryById(categoryId)
@@ -116,8 +114,7 @@ exports.updateCategoryPush = [
             })
         };
 
-
-
+        await db.updateCategory(updatedCategory, categoryId)
         res.redirect("/")
     }
 ]
