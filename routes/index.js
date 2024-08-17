@@ -23,6 +23,7 @@ indexRouter.post("/updateItem/:itemId", itemsController.updateItemPost)
 
 // updating categories
 indexRouter.get("/updateCategory/:categoryId", categoriesController.updateCategoryGet)
+indexRouter.post("/updateCategory/:categoryId", categoriesController.updateCategoryPush)
 
 // deleting items
 indexRouter.get("/deleteItem/:itemId", itemsController.deleteItemGet)

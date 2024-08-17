@@ -25,6 +25,13 @@ const validateCategory = [
     
 ]
 
+const validateCategoryUpdate = [
+    body("categoryName").trim()
+        .isLength({ min: 3, max: 25 }).withMessage(lengthError),
+    body("founderName").trim()
+        .optional({values: "falsy"})
+]
+
 exports.allCategoriesGet = async (req, res) => {
     const categories = await db.allCategoriesGet()
     return categories
@@ -37,7 +44,6 @@ exports.findCategoryGet = async (req, res) => {
         const categories = await db.allCategoriesGet()
         
         const chosenCategory = await db.findCategoryById(categoryId)
-        console.log('chosen', chosenCategory)
 
         const categoryItems = await db.findItemsInCategory(categoryId)
         console.log(categoryItems)
@@ -79,16 +85,40 @@ exports.newCategoryPush = [
 ]
 
 exports.updateCategoryGet = async (req, res) => {
-    console.log(req.body)
+    const categoryId = req.params.categoryId
+    const chosenCategory = await db.findCategoryById(categoryId)
+    console.log(chosenCategory)
+
     res.render("updateCategory", {
-        title: 'update'
+        title: `Update ${chosenCategory.name}`,
+        chosenCategory: chosenCategory
     })
 }
 
 exports.updateCategoryPush = [
-    validateCategory,
+    validateCategoryUpdate,
     async (req,res) => {
+        const errors = validationResult(req);
+        console.log('updated category')
+        const updatedCategory = req.body
+        console.log(updatedCategory)
+        console.log(req.params)
 
+        const categoryId = req.params.categoryId
+        const oldCategory = await db.findCategoryById(categoryId)
+        console.log(oldCategory)
+
+        if (!errors.isEmpty()) {
+            return res.status(400).render("updateCategory", {
+                title: `Update ${oldCategory.name}`,
+                chosenCategory: oldCategory,
+                errors: errors.array()
+            })
+        };
+
+
+
+        res.redirect("/")
     }
 ]
     

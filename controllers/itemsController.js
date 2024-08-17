@@ -44,15 +44,6 @@ exports.newItemGet = async (req, res) => {
     })
 }
 
-// exports.newItemPost = async (req, res) => {
-//     const newItem = req.body;
-//     console.log(newItem)
-//     const selectedCategories = Object.entries(newItem)
-//         .filter(([key,value]) => value === "on")
-//         .map(([key]) => key);
-//     await db.addNewItem(selectedCategories, newItem)
-//     res.redirect("/")
-// }
 
 exports.newItemPost = [
     validateItem,

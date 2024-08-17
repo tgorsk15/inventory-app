@@ -5,11 +5,8 @@
     position: relative;
 }
 
-/* new item form section */
-.item-title-container  {
-    /* position: absolute; */
-    /* top: 100px;
-    left: 180px; */
+/* new item and update item form section */
+.item-title-container, .category-title-container  {
     margin-right: 35px;
     font-size: 28px;
 }
@@ -94,9 +91,9 @@
 }
 
 
-/* new category form */
+/* new category and update category form */
 
-.category-form {
+.category-form, .update-category-form {
     display: flex;
     flex-direction: column;
     padding: 10px 30px;
@@ -106,11 +103,11 @@
     box-shadow: 2px 2px 7px 0px rgb(110, 110, 110);
 }
 
-.category-form > label {
+.category-form > label, .update-category-form > label {
     margin-top: 20px;
 }
 
-.add-category-btn {
+.add-category-btn, .update-category-btn {
     margin-top: 20px;
     width: 120px;
 }

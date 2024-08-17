@@ -21,7 +21,7 @@ async function allCategoriesGet() {
 
 async function findCategoryById(categoryId) {
     const { rows } = await pool.query(`
-            SELECT id FROM categories
+            SELECT * FROM categories
             WHERE id = $1
         `, [categoryId])
     return rows[0]
