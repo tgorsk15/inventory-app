@@ -138,6 +138,19 @@ exports.updateItemPost = [
         // AND update entries in item_categories
         const updatedReferences = await db.updateItemReferences(itemId, currentCategories)
         res.redirect("/")
+
     }
 ]
+
+
+exports.deleteItemGet = async (req, res) => {
+    const itemId = req.params.itemId
+    console.log('here it is boys', itemId)
+
+    await db.deleteItem(itemId)
+    await db.deleteItemReferences(itemId)
+    console.log('deleted')
+
+    res.redirect("/")
+}
 

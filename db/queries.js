@@ -116,6 +116,20 @@ async function updateItemReferences(itemId, currentCategories) {
     })
 }
 
+async function deleteItem(itemId) {
+    await pool.query(`
+        DELETE FROM items
+        WHERE id = $1
+    `, [itemId])
+}
+
+async function deleteItemReferences(itemId) {
+    await pool.query(`
+        DELETE FROM item_categories
+        WHERE item_id = $1
+    `, [itemId])
+}
+
 module.exports = {
     allItemsGet,
     findItemById,
@@ -127,5 +141,7 @@ module.exports = {
     findItemsInCategory,
     updateItem,
     addNewCategory,
-    updateItemReferences
+    updateItemReferences,
+    deleteItem,
+    deleteItemReferences
 }

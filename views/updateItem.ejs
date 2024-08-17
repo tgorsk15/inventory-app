@@ -20,6 +20,8 @@
             
             <% console.log('here is item', chosenItem) %>
             <form action="/updateItem/<%= chosenItem.id %>" class="update-item-form" method="POST">
+                <a href="/deleteItem/<%= chosenItem.id %>" class="delete-item-link">Delete</a>
+
                 <label for="itemName">Name:</label>
                 <input type="text" name="itemName" id="itemName" 
                     value="<%= chosenItem.name %>" required>

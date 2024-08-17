@@ -35,12 +35,11 @@
 
 .item-form, .update-item-form {
     padding: 10px 30px;
-    /* padding-bottom: 0px; */
     background-color: rgb(212, 221, 221);
     border-radius: 20px;
     /* height: 55vh; */
-    /* height: auto;  */
     height: fit-content;
+    box-shadow: 2px 2px 7px 0px rgb(110, 110, 110);
 }
 
 .item-form > label, .update-item-form > label {
@@ -48,6 +47,10 @@
     flex-direction: column;
     margin-top: 20px;
     margin-bottom: 10px;
+}
+
+.update-item-form {
+    position: relative;
 }
 
 
@@ -70,6 +73,26 @@
     color: red;
 }
 
+.delete-item-link {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    text-decoration: none;
+    background-color: rgb(238, 80, 80);
+    color: white;
+    padding: 5px 8px;
+    border-radius: 20px;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0px 0px 7px 0px rgb(101, 101, 101);
+    transition: all ease-out 300ms;
+    will-change: transform;
+}
+
+.delete-item-link:hover {
+    transform: scale(1.1);
+}
+
 
 /* new category form */
 
@@ -80,6 +103,7 @@
     background-color: rgb(212, 221, 221);
     border-radius: 20px;
     height: 27vh;
+    box-shadow: 2px 2px 7px 0px rgb(110, 110, 110);
 }
 
 .category-form > label {
