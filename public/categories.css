@@ -8,10 +8,23 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    text-align: center;
 }
 
 .categories-title {
+    color: azure;
     margin: 8px 0px;
+}
+
+.add-category-link {
+    font-size: 26px;
+    font-weight: bold;
+    transition: all ease-out 400ms;
+    will-change: transform;
+}
+
+.add-category-link:hover {
+    transform: rotate(180deg);
 }
 
 .category-container {
@@ -35,6 +48,7 @@
     margin-right: 35px;
     height: 20px;
     transition:  all ease-out 300ms;
+    color: rgb(246, 135, 101);
 }
 
 .edit-svg:hover {
@@ -46,4 +60,5 @@
 
 .category-title {
     margin-left: 40px;
+    color: white;
 }
