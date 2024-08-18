@@ -41,11 +41,12 @@
 
 .item-form, .update-item-form {
     padding: 10px 30px;
-    background-color: rgb(212, 221, 221);
+    background-color: rgb(154, 154, 154);
+    border: 2px solid rgb(49, 49, 49);
     border-radius: 20px;
     /* height: 55vh; */
     height: fit-content;
-    box-shadow: 2px 2px 7px 0px rgb(110, 110, 110);
+    box-shadow: 2px 2px 7px 0px rgb(54, 54, 54);
 }
 
 .item-form > label, .update-item-form > label {
@@ -72,11 +73,10 @@
 }
 
 .error-container {
-    /* position: absolute; */
     top: 100px;
     right: 18vw;
     line-height: 1.5;
-    color: red;
+    color: rgb(246, 135, 101);
 }
 
 .delete-item-link {
@@ -84,13 +84,13 @@
     top: 20px;
     right: 30px;
     text-decoration: none;
-    background-color: rgb(238, 80, 80);
+    background-color: rgb(246, 135, 101);
     color: white;
     padding: 5px 8px;
     border-radius: 20px;
     font-weight: bold;
     border: none;
-    box-shadow: 0px 0px 7px 0px rgb(101, 101, 101);
+    box-shadow: 0px 0px 7px 0px rgb(54, 54, 54);
     transition: all ease-out 300ms;
     will-change: transform;
 }
@@ -108,10 +108,11 @@
     flex-direction: column;
     padding: 10px 30px;
     padding-top: 15px;
-    background-color: rgb(212, 221, 221);
+    background-color: rgb(154, 154, 154);
+    border: 2px solid rgb(49, 49, 49);
     border-radius: 20px;
     height: 27vh;
-    box-shadow: 2px 2px 7px 0px rgb(110, 110, 110);
+    box-shadow: 2px 2px 7px 0px rgb(54, 54, 54);
 }
 
 .category-form > label, .update-category-form > label {
@@ -128,13 +129,13 @@
     top: 10px;
     right: 15px;
     text-decoration: none;
-    background-color: rgb(238, 80, 80);
+    background-color: rgb(246, 135, 101);
     color: white;
     padding: 5px 8px;
     border-radius: 20px;
     font-weight: bold;
     border: none;
-    box-shadow: 0px 0px 7px 0px rgb(101, 101, 101);
+    box-shadow: 0px 0px 7px 0px rgb(54, 54, 54);
     transition: all ease-out 300ms;
     will-change: transform;
 }
@@ -155,8 +156,8 @@
     width: 230px;
     padding: 15px;
     backdrop-filter: blur(7px);
-    box-shadow: 0px 0px 10px 0px grey;
-    border: 2px solid rgb(115, 115, 115);
+    box-shadow: 0px 0px 10px 0px rgb(54, 54, 54);
+    border: 2px solid rgb(49, 49, 49);
     border-radius: 20px;
 }
 

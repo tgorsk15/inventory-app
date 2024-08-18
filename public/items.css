@@ -12,7 +12,6 @@
 }
 
 .item-container {
-    /* padding: 10px; */
     transition: all ease-out 350ms;
     color: white;
 }
@@ -58,7 +57,6 @@
     position: absolute;
     top: 5px;
     right: 15px;
-    /* background-color: rgb(239, 176, 157); */
     background-color: rgb(246, 135, 101);
     border-radius: 15px;
     padding: 3px 8px;
