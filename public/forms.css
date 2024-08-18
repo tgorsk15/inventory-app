@@ -94,9 +94,11 @@
 /* new category and update category form */
 
 .category-form, .update-category-form {
+    position: relative;
     display: flex;
     flex-direction: column;
     padding: 10px 30px;
+    padding-top: 15px;
     background-color: rgb(212, 221, 221);
     border-radius: 20px;
     height: 27vh;
@@ -110,5 +112,25 @@
 .add-category-btn, .update-category-btn {
     margin-top: 20px;
     width: 120px;
+}
+
+.delete-category-link {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    text-decoration: none;
+    background-color: rgb(238, 80, 80);
+    color: white;
+    padding: 5px 8px;
+    border-radius: 20px;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0px 0px 7px 0px rgb(101, 101, 101);
+    transition: all ease-out 300ms;
+    will-change: transform;
+}
+
+.delete-category-link:hover {
+    transform: scale(1.1);
 }
 

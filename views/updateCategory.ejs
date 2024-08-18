@@ -19,6 +19,10 @@
             </div>
 
             <form action="/updateCategory/<%= chosenCategory.id %>" class="update-category-form" method="POST">
+                <a href="/deleteCategory/<%= chosenCategory.id %>" class="delete-category-link">
+                    Delete
+                </a>
+
                 <label for="categoryName">Category Name:</label>
                 <input type="text" name="categoryName" id="categoryName" 
                     value="<%= chosenCategory.name %>" required>
