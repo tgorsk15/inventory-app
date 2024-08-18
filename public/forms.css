@@ -5,6 +5,15 @@
     position: relative;
 }
 
+/* for blurring background */
+.blur {
+    filter: blur(8px);
+}
+
+.no-blur {
+    filter: blur(0px);
+}
+
 /* new item and update item form section */
 .item-title-container, .category-title-container  {
     margin-right: 35px;
@@ -132,5 +141,34 @@
 
 .delete-category-link:hover {
     transform: scale(1.1);
+}
+
+.delete-message-popup {
+    position: absolute;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    margin-top: -105px;
+    margin-left: -130px;
+    background-color: rgb(212, 221, 221);
+    height: 180px;
+    width: 230px;
+    padding: 15px;
+    backdrop-filter: blur(7px);
+    box-shadow: 0px 0px 10px 0px grey;
+    border: 2px solid rgb(115, 115, 115);
+    border-radius: 20px;
+}
+
+.delete-message-popup > p {
+    font-size: 22px;
+}
+
+.confirm-error-link {
+    text-decoration: none;
+    background-color: rgb(97, 193, 97);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
 }
 

@@ -28,5 +28,8 @@ indexRouter.post("/updateCategory/:categoryId", categoriesController.updateCateg
 // deleting items
 indexRouter.get("/deleteItem/:itemId", itemsController.deleteItemGet)
 
+// deleting categories
+indexRouter.get("/deleteCategory/:categoryId", categoriesController.deleteCategoryGet)
+
 module.exports = indexRouter
 

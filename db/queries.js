@@ -139,6 +139,14 @@ async function deleteItemReferences(itemId) {
     `, [itemId])
 }
 
+async function deleteCategory(categoryId) {
+
+}
+
+async function deleteCategoryReferences(categoryId) {
+
+}
+
 module.exports = {
     allItemsGet,
     findItemById,
@@ -153,5 +161,7 @@ module.exports = {
     addNewCategory,
     updateItemReferences,
     deleteItem,
-    deleteItemReferences
+    deleteItemReferences,
+    deleteCategory,
+    deleteCategoryReferences
 }

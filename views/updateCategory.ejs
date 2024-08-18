@@ -7,7 +7,21 @@
     </head>
     <body>
         <%- include('header') %>
+
+        <% if (locals.deleteError) {%>
+            <div class="delete-message-popup no-blur" style="display: block">
+                <p><%= deleteError %></p>
+                <a href="/updateCategory/<%= chosenCategory.id %>" class="confirm-error-link">
+                    Ok
+                </a>
+            </div>
+        <% } %>
+        
+        <% if (locals.showPopUp) {%> 
+        <div class="main-container <%= showPopUp ? 'blur' : '' %>" style="grid-column: 1 / 3;">
+        <% } else { %>
         <div class="main-container" style="grid-column: 1 / 3;">
+        <% } %>
             <div class="category-title-container">
                 <h2 class="add-category-header">Update the category</h2>
                 <a href="/" class="back-button">

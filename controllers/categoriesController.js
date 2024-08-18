@@ -118,4 +118,31 @@ exports.updateCategoryPush = [
         res.redirect("/")
     }
 ]
+
+exports.deleteCategoryGet = async (req, res) => {
+    console.log(req.params)
+    const categoryId = req.params.categoryId
+
+    // set up prompt to see if items are still in category
+    // do a query to search if categoryId is matched to any
+    // item ids. If length of returned array is greater than 0, then
+    // category cannot be deleted
+    const results = await db.findItemsInCategory(categoryId)
+
+    const oldCategory = await db.findCategoryById(categoryId)
+        console.log(oldCategory)
+
+    if (results.length > 0) {
+        const deleteError = 'All items must be removed from category before deleting'
+
+        const showPopUp = true
+
+        res.render("updateCategory", {
+            title: `Update ${oldCategory.name}`,
+            chosenCategory: oldCategory,
+            deleteError: deleteError,
+            showPopUp: showPopUp
+        })
+    }
+}
     
