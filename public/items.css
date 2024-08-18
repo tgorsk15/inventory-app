@@ -1,9 +1,22 @@
+.all-items-title {
+    margin-left: 40px;
+}
+
 .items-holder {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-    row-gap: 55px;
+    row-gap: 45px;
     column-gap: 45px;
     margin: 20px;
+}
+
+.item-container {
+    /* padding: 10px; */
+    transition: all ease-out 350ms;
+}
+
+.item-container:hover {
+    transform: translateY(-10px);
 }
 
 .img-container {
@@ -15,6 +28,7 @@
     background-color: white;
     padding: 5px 0px;
     border-radius: 25px;
+    box-shadow: 2px 2px 5px grey;
 }
 
 .item-img {
@@ -41,12 +55,13 @@
 .edit-item-link {
     position: absolute;
     top: 5px;
-    right: 20px;
+    right: 15px;
     background-color: aliceblue;
     border-radius: 15px;
     padding: 1px 5px;
     text-decoration: none;
     color: black;
+    box-shadow: 1px 1px 4px 0px grey;
 }
 
 

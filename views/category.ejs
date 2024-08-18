@@ -7,7 +7,9 @@
         <%- include('header') %>
         <%- include('sidebar', {categories: categories}) %>
         <div class="main-container">
-           <h2><%= chosenCategory.name %></h2>
+            <h2 class="category-title">
+                Category: <%= chosenCategory.name %> |  Founder: <%= chosenCategory.founder %>
+            </h2>
             <div class="items-holder">
                 <% categoryItems.forEach(item => { %>
                     <div class="item-container">
