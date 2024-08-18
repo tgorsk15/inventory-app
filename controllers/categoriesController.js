@@ -137,12 +137,16 @@ exports.deleteCategoryGet = async (req, res) => {
 
         const showPopUp = true
 
-        res.render("updateCategory", {
+        return res.render("updateCategory", {
             title: `Update ${oldCategory.name}`,
             chosenCategory: oldCategory,
             deleteError: deleteError,
             showPopUp: showPopUp
         })
     }
+
+    await db.deleteCategory(categoryId);
+    await db.deleteCategoryReferences(categoryId);
+    res.redirect("/")
 }
     

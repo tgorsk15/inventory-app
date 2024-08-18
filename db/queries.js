@@ -140,11 +140,17 @@ async function deleteItemReferences(itemId) {
 }
 
 async function deleteCategory(categoryId) {
-
+    await pool.query(`
+        DELETE FROM categories
+        WHERE id = $1
+    `, [categoryId])
 }
 
 async function deleteCategoryReferences(categoryId) {
-
+    await pool.query(`
+        DELETE FROM item_categories
+        WHERE category_id = $1
+    `, [categoryId])
 }
 
 module.exports = {
