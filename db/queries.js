@@ -70,8 +70,6 @@ async function addNewItem(selectedCategories, newItem) {
         `, [newItem.itemName])
 
     categoryResults.forEach(async category => {
-        console.log('here is item', rows[0].id)
-        console.log('categoryId:', category.id)
         const referenceInsert = await pool.query(`
             INSERT INTO item_categories (item_id, category_id)
             VALUES
@@ -90,7 +88,6 @@ async function updateItem(item, itemId) {
 }
 
 async function updateCategory(category, categoryId) {
-    console.log(category)
     await pool.query(`
             UPDATE categories
             SET name = $1, founder = $2
@@ -99,7 +96,6 @@ async function updateCategory(category, categoryId) {
 }
 
 async function addNewCategory(newCategory) {
-    console.log('adding new cat')
     const insertCategory = await pool.query(`
             INSERT INTO categories (name, founder)
             VALUES

@@ -1,11 +1,9 @@
 const db = require("../db/queries")
-const asyncHandler = require("express-async-handler")
 const categoriesController = require("./categoriesController")
 const { body, validationResult } = require("express-validator")
 
 const nameError = "Name must be between 3 and 25 characters"
 const unitsError = "Max amount of units is 1 billion"
-
 
 
 const validateItem = [
@@ -20,13 +18,11 @@ const validateItem = [
         if (!hasSelectedCategory) {
             throw new Error('At least one category needs to be selected')
         }
-
-
     })
     
 ]
 
-exports.allItemsGet = async (req, res, next) => {
+exports.allItemsGet = async (req, res) => {
     const items = await db.allItemsGet();
     const categories = await categoriesController.allCategoriesGet();
     res.render("items", {
@@ -60,8 +56,6 @@ exports.newItemPost = [
         };
 
         const newItem = req.body;
-        console.log(newItem)
-
         if (req.body.itemName.length > 16) {
 
         }
@@ -76,17 +70,13 @@ exports.newItemPost = [
 
 
 exports.updateItemGet = async (req, res) => {
-    // need to figure out how to pass selected item into here
     const itemId = req.params.itemId
-    console.log(itemId)
 
     const categories = await categoriesController.allCategoriesGet();
     const results = await db.findCategoriesWhereItemExists(itemId)
     const currentCategories = results.map(category => category.name)
-    console.log(currentCategories)
 
     const chosenItem = await db.findItemById(itemId);
-    console.log('here is chosen1', chosenItem)
     res.render("updateItem", {
         title: `${chosenItem.name}`,
         categories: categories,
@@ -105,12 +95,10 @@ exports.updateItemPost = [
         const itemId = req.params.itemId;
         const item = req.body
         const oldItem = await db.findItemById(itemId)
-        console.log('here is old', oldItem)
         
         const currentCategories = Object.entries(item)
             .filter(([key,value]) => value === "on")
             .map(([key]) => key);
-        console.log('here is search item', item)
 
         if (!errors.isEmpty()) {
             return res.status(400).render("updateItem", {
@@ -124,9 +112,8 @@ exports.updateItemPost = [
 
 
 
-        // replace item row in items
+        // replace item row in itemsand update references
         const updatedItem = await db.updateItem(item, itemId)
-        // AND update entries in item_categories
         const updatedReferences = await db.updateItemReferences(itemId, currentCategories)
         res.redirect("/")
 
@@ -136,12 +123,9 @@ exports.updateItemPost = [
 
 exports.deleteItemGet = async (req, res) => {
     const itemId = req.params.itemId
-    console.log('here it is boys', itemId)
 
     await db.deleteItem(itemId)
     await db.deleteItemReferences(itemId)
-    console.log('deleted')
-
     res.redirect("/")
 }
 

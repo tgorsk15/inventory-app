@@ -1,5 +1,4 @@
 const db = require('../db/queries')
-const asyncHandler = require("express-async-handler")
 
 const { body, validationResult } = require("express-validator");
 
@@ -16,7 +15,6 @@ const validateCategory = [
                     throw new Error('This category already exists, try another!')
                 }
             })
-    
         }),
     body("categoryName").trim()
         .isLength({ min: 3, max: 25 }).withMessage(lengthError),
@@ -46,7 +44,6 @@ exports.findCategoryGet = async (req, res) => {
         const chosenCategory = await db.findCategoryById(categoryId)
 
         const categoryItems = await db.findItemsInCategory(categoryId)
-        console.log(categoryItems)
         res.render("category", {
             categories: categories,
             chosenCategory: chosenCategory,
@@ -78,7 +75,6 @@ exports.newCategoryPush = [
             })
         };
 
-        console.log(req.body)
         await db.addNewCategory(req.body)
         res.redirect("/")
     } 
@@ -87,7 +83,6 @@ exports.newCategoryPush = [
 exports.updateCategoryGet = async (req, res) => {
     const categoryId = req.params.categoryId
     const chosenCategory = await db.findCategoryById(categoryId)
-    console.log(chosenCategory)
 
     res.render("updateCategory", {
         title: `Update ${chosenCategory.name}`,
@@ -99,12 +94,10 @@ exports.updateCategoryPush = [
     validateCategoryUpdate,
     async (req,res) => {
         const errors = validationResult(req);
-        console.log('updated category')
         const updatedCategory = req.body
 
         const categoryId = req.params.categoryId
         const oldCategory = await db.findCategoryById(categoryId)
-        console.log(oldCategory)
 
         if (!errors.isEmpty()) {
             return res.status(400).render("updateCategory", {
@@ -120,17 +113,11 @@ exports.updateCategoryPush = [
 ]
 
 exports.deleteCategoryGet = async (req, res) => {
-    console.log(req.params)
     const categoryId = req.params.categoryId
 
-    // set up prompt to see if items are still in category
-    // do a query to search if categoryId is matched to any
-    // item ids. If length of returned array is greater than 0, then
-    // category cannot be deleted
     const results = await db.findItemsInCategory(categoryId)
 
     const oldCategory = await db.findCategoryById(categoryId)
-        console.log(oldCategory)
 
     if (results.length > 0) {
         const deleteError = 'All items must be removed from category before deleting'

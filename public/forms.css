@@ -44,7 +44,6 @@
     background-color: rgb(154, 154, 154);
     border: 2px solid rgb(49, 49, 49);
     border-radius: 20px;
-    /* height: 55vh; */
     height: fit-content;
     box-shadow: 2px 2px 7px 0px rgb(54, 54, 54);
 }
