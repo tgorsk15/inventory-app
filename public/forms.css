@@ -41,6 +41,7 @@
 
 .item-form, .update-item-form {
     padding: 10px 30px;
+    padding-bottom: 20px;
     background-color: rgb(154, 154, 154);
     border: 2px solid rgb(49, 49, 49);
     border-radius: 20px;
@@ -81,7 +82,7 @@
 .delete-item-link {
     position: absolute;
     top: 20px;
-    right: 30px;
+    right: 20px;
     text-decoration: none;
     background-color: rgb(246, 135, 101);
     color: white;
@@ -110,7 +111,8 @@
     background-color: rgb(154, 154, 154);
     border: 2px solid rgb(49, 49, 49);
     border-radius: 20px;
-    height: 27vh;
+    /* height: 25vh; */
+    height: fit-content;
     box-shadow: 2px 2px 7px 0px rgb(54, 54, 54);
 }
 
